@@ -95,7 +95,30 @@ const specialChar = [
   "~",
 ];
 
-function generatePassword() {}
+function generatePassword() {
+  const passwordLength = getPassswordLength();
+}
+
+//This function generates the length of the password
+function getPassswordLength() {
+  //debugger;
+  let passwordLength = 0;
+  let isInputNumber = true;
+
+  while (passwordLength < 8 || passwordLength > 128 || isInputNumber == false) {
+    passwordLength = parseInt(
+      window.prompt("Please enter a password length between 8 - 128 character.")
+    );
+
+    if (isNaN(passwordLength)) {
+      isInputNumber = false;
+    } else {
+      isInputNumber = true;
+    }
+  }
+
+  return passwordLength;
+}
 
 // Get references to the #generate element
 const generateBtn = document.querySelector("#generate");
