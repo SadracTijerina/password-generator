@@ -3,7 +3,7 @@
 ## Description
 This project I created a password generator. It randomly generates a password for you from 8 - 128 characters. The characters that appear depends on the options you've chosen.
 
-# Built With
+## Built With
 - HTMl
 - CSS
 - Javascript
