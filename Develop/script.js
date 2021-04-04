@@ -164,7 +164,7 @@ function generatePassword() {
   let passwordGeneratedChars = 0;
 
   while (passwordGeneratedChars != passwordLength) {
-    let characterSelection = getRandomInt(3) + 1;
+    let characterSelection = getRandomInt(4) + 1;
 
     if (characterSelection === 1 && userSelection.lowerCase === true) {
       password = password + lowerCase[getRandomInt(lowerCase.length)];
