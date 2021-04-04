@@ -95,10 +95,6 @@ const specialChar = [
   "~",
 ];
 
-function generatePassword() {
-  const passwordLength = getPassswordLength();
-}
-
 //This function generates the length of the password
 function getPassswordLength() {
   //debugger;
@@ -118,6 +114,73 @@ function getPassswordLength() {
   }
 
   return passwordLength;
+}
+
+function getUserCharSelection() {
+  let userSelection = {
+    lowerCase: false,
+    upperCase: false,
+    numbers: false,
+    specialChar: false,
+  };
+
+  while (
+    !userSelection.lowerCase &&
+    !userSelection.upperCase &&
+    !userSelection.numbers &&
+    !userSelection.specialChar
+  ) {
+    userSelection.lowerCase = window.confirm(
+      "Would you like to include lower case characters in your password"
+    );
+
+    userSelection.upperCase = window.confirm(
+      "Would you like to include upper case characters in your password"
+    );
+
+    userSelection.numbers = window.confirm(
+      "Would you like to include numbers in your password"
+    );
+
+    userSelection.specialChar = window.confirm(
+      "Would you like to include special characters in your password"
+    );
+  }
+
+  return userSelection;
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+function generatePassword() {
+  //debugger;
+
+  const passwordLength = getPassswordLength();
+  const userSelection = getUserCharSelection();
+
+  let password = "";
+  let passwordGeneratedChars = 0;
+
+  while (passwordGeneratedChars != passwordLength) {
+    let characterSelection = getRandomInt(3) + 1;
+
+    if (characterSelection === 1 && userSelection.lowerCase === true) {
+      password = password + lowerCase[getRandomInt(lowerCase.length)];
+      passwordGeneratedChars++;
+    } else if (characterSelection === 2 && userSelection.upperCase === true) {
+      password = password + upperCase[getRandomInt(upperCase.length)];
+      passwordGeneratedChars++;
+    } else if (characterSelection === 3 && userSelection.numbers === true) {
+      password = password + numbers[getRandomInt(numbers.length)];
+      passwordGeneratedChars++;
+    } else if (characterSelection === 4 && userSelection.specialChar === true) {
+      password = password + specialChar[getRandomInt(specialChar.length)];
+      passwordGeneratedChars++;
+    }
+  }
+  return password;
 }
 
 // Get references to the #generate element
