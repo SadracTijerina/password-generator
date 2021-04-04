@@ -1,4 +1,3 @@
-// Assignment code here
 const lowerCase = [
   "a",
   "b",
@@ -97,7 +96,6 @@ const specialChar = [
 
 //This function generates the length of the password
 function getPassswordLength() {
-  //debugger;
   let passwordLength = 0;
   let isInputNumber = true;
 
@@ -116,6 +114,7 @@ function getPassswordLength() {
   return passwordLength;
 }
 
+//This function ask the user what character types they would like on their password
 function getUserCharSelection() {
   let userSelection = {
     lowerCase: false,
@@ -124,6 +123,7 @@ function getUserCharSelection() {
     specialChar: false,
   };
 
+  //this loop makes sure that the use atleast selected one
   while (
     !userSelection.lowerCase &&
     !userSelection.upperCase &&
@@ -150,13 +150,13 @@ function getUserCharSelection() {
   return userSelection;
 }
 
+//This function generates a random int
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
+//This function generates a password once it gets the password length and the selection of characters
 function generatePassword() {
-  //debugger;
-
   const passwordLength = getPassswordLength();
   const userSelection = getUserCharSelection();
 
